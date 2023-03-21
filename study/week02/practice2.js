@@ -25,6 +25,7 @@ module.exports = solution;
 
 // 좋아하는 숫자만 골라내기
 // (0/100)
+// 다시!
 
 function solution(input) {
     const num_tuple = ['2','3','5','6','7','8','9'];
