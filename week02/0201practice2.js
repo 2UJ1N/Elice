@@ -115,3 +115,120 @@ module.exports = { inputs: [inputA], func: getDigits }
 // 자릿수 배열을 숫자로 되돌리는 함수 만들기
 // (100/100)
 
+function makeNumberFromDigits(arr) {
+    var n = arr.length;
+    var sum = 0;
+
+    for (var i = 0; i < n; i++) {
+        var j = n - 1 - i
+
+        sum += arr[i] * Math.pow(10, j);    
+    }
+
+    return sum;
+}
+
+// 아래 숫자 부분을 자유롭게 바꾸어 가며 실행해 보세요.
+// 물론 현재 그대로 두어도 무방합니다. 제출 시의 채점과는 무관합니다.
+var inputA = [1, 1, 0, 0]
+
+// 실행 혹은 제출을 위한 코드입니다. 지우거나 수정하지 말아주세요.
+module.exports = { inputs: [inputA], func: makeNumberFromDigits }
+
+
+
+// 성인만 골라내는 함수 만들기
+// (100/100)
+
+function getOnlyAdults(arr) {
+    var answer = [];
+
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].age >= 20) 
+            answer.push(arr[i].name);
+
+    }
+
+    return answer;
+}
+
+// 아래 문자열과 숫자 부분을 자유롭게 바꾸어 가며 실행해 보세요.
+// 물론 현재 그대로 두어도 무방합니다. 제출 시의 채점과는 무관합니다.
+var inputA = [{
+    name: "박태환",
+    age: 35
+  }, 
+  {
+    name: "유재석",
+    age: 49
+  },
+  {
+    name: "김강훈",
+    age: 12
+  },
+  {
+    name: "이지원",
+    age: 15
+  }]
+  
+  // 실행 혹은 제출을 위한 코드입니다. 지우거나 수정하지 말아주세요.
+  module.exports = { inputs: [inputA], func: getOnlyAdults }
+
+
+
+// 어린이만 골라내는 함수 만들기
+// (100/100)
+
+function getOnlyChilds(arr) {
+    var answer = [];
+
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].age < 20) 
+            answer.push(arr[i].name);
+    }
+
+    return answer;
+}
+
+// 아래 문자열과 숫자 부분을 자유롭게 바꾸어 가며 실행해 보세요.
+// 물론 현재 그대로 두어도 무방합니다. 제출 시의 채점과는 무관합니다.
+var inputA = [{
+  name: "박태환",
+  age: 35
+}, 
+{
+  name: "유재석",
+  age: 49
+},
+{
+  name: "김강훈",
+  age: 12
+},
+{
+  name: "이지원",
+  age: 15
+}]
+
+// 실행 혹은 제출을 위한 코드입니다. 지우거나 수정하지 말아주세요.
+module.exports = { inputs: [inputA], func: getOnlyChilds }
+
+
+
+// 직각삼각형 여부를 판단하는 함수 만들기
+// (100/100)
+
+function isRightTriangle(num1, num2, num3){
+    if (num1 ** 2 === num2 ** 2 + num3 **2) 
+        return true;
+    else
+        return false;
+}
+
+// 아래 숫자 부분을 자유롭게 바꾸어 가며 실행해 보세요.
+// 물론 현재 그대로 두어도 무방합니다. 제출 시의 채점과는 무관합니다.
+var inputA = 5
+var inputB = 3
+var inputC = 4
+
+// 실행 혹은 제출을 위한 코드입니다. 지우거나 수정하지 말아주세요.
+module.exports = { inputs: [inputA, inputB, inputC], func: isRightTriangle }
