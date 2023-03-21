@@ -58,7 +58,7 @@ module.exports = solution;
 
 
 
-// 렌터카
+// 마천루
 // (100/100)
 
 function solution(input) {
