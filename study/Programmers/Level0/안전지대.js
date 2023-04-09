@@ -1,49 +1,45 @@
-//[level 0] 안전지대
-//https://school.programmers.co.kr/learn/courses/30/lessons/120842
+//[level 0] 안전지대 120866
+//https://school.programmers.co.kr/learn/courses/30/lessons/120866
 
 //결과 
 //정확성: 100.0
 //합계: 100.0 / 100.0
 
 function solution(board) {
-    var answer = 0;
-    var map = board.slice();
-    var len = board.length;
-    
-    for (let i = 0; i < len; i++) {
-        for (let j = 0; j < len; j++) {
-            if (board[i][j] === 1) {
-                if (i !== 0 && i !== len - 1) {
-                    for (let k = 0; k < 3; k++) {
-                        map[i - 1][j - 1 + k] == 1;
-                        map[i][j - 1 + k] == 1;
-                        map[i + 1][j - 1 + k] == 1;
-                    }
-                } 
-                else {
-                    if (i ===0) {
-                        for (let k = 0; k < 3; k++) {
-                            map[i][j - 1 + k] == 1;
-                            map[i + 1][j - 1 + k] == 1;
-                        }
-                    }
-                    else {
-                        for (let k = 0; k < 3; k++) {
-                            map[i - 1][j - 1 + k] == 1;
-                            map[i][j - 1 + k] == 1;
-                        }
-                    }
-                }
-            }
+    const N = board.length
+    const dx = [-1, 1, 0, 0, -1, -1, 1, 1]
+    const dy = [0, 0, -1, 1, -1, 1, -1, 1]
+  
+    // 지뢰가 설치된 곳
+    const booms = []
+    for (let x = 0; x < N; x++) {
+      for (let y = 0; y < N; y++) {
+        if (board[x][y] === 1) {
+          booms.push([x, y])
         }
+      }
     }
-    return map;
-    
-    let cnt = 0;
-    for (let i = 0; i < len; i++) {
-        for (let j = 0; j < len; j++) {
-            if (map[i][j] === 0) cnt ++;
+  
+    // 지뢰가 설치된 곳 주변에 폭탄 설치
+    booms.forEach(([x, y]) => {
+      for (let i = 0; i < 8; i++) {
+        const nx = x + dx[i]
+        const ny = y + dy[i]
+        if (0 <= nx && nx < N && 0 <= ny && ny < N) {
+          board[nx][ny] = 1
+        }
+      }
+    })
+  
+    // 폭탄이 설치되지 않은 곳만 카운팅
+    let count = 0
+    for (let x = 0; x < N; x++) {
+      for (let y = 0; y < N; y++) {
+        if (board[x][y] === 0) {
+          count++
+        }
+      }
     }
-    }
-    return cnt;
-}
+  
+    return count
+  }

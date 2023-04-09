@@ -1,25 +1,29 @@
-//[level 0] 다항식 더하기
-//https://school.programmers.co.kr/learn/courses/30/lessons/120842
+//질문
+
+//[level 0] 다항식 더하기 120863
+//https://school.programmers.co.kr/learn/courses/30/lessons/120863
 
 //결과 
-//정확성: 100.0
-//합계: 100.0 / 100.0
+//정확성: 58.3
+//합계: 58.3 / 100.0
 
 function solution(polynomial) {
-    var answer = '';
+    var num = polynomial.split(' + ');
     var x = 0;
-    var x0 = 0;
+    var n = 0;
     
-    var arr = polynomial.split(' + ');
-    
-    for (let i of arr) {
-        if (i.includes('x')) {
-            if (i === 'x') x += 1;
-            else x += Number(i.replace('x', ''));
-        }
-        else x0 += Number(i);
+    for (let i of num) {
+        if (i.endsWith('x')) {
+            if (i.length > 1) {
+                x += Number(i.charAt(0));
+            } else x += 1;
+        } else n += Number(i);
     }
     
-    if (x0 === 0) return `${x}x`;
-    else return `${x}x + ${x0}`;
+    //출력
+    var result = [];
+    if (x) result.push(`${x === 1? "" : x}x`);
+    if (n) result.push(n);
+        
+    return result.join(" + ");
 }
