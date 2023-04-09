@@ -2,19 +2,18 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/120840
 
 //결과 
-//정확성: 80.0
-//합계: 80.0 / 100.0
+//정확성: 100.0
+//합계: 100.0 / 100.0
 
 function solution(balls, share) {
-    
-    return factorial(balls) / factorial(balls - share) / factorial(share);
+    var answer = factorial(balls) / (factorial(balls - share) * factorial(share));
+
+    return Math.round(answer);
 }
 
-function factorial(num) {
-    answer = 1;
-    
-    for (let i = num; i > 0; i--) {
-        answer *= i;
+function factorial(n) {
+    var result = 1;
+    for (let i = n; i > 1; i--){
+        result *= i;
     }
-    return answer;
 }

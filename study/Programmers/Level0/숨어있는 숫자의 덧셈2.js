@@ -2,16 +2,16 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/120864
 
 //결과 
-//정확성: 97.8
-//합계: 97.8 / 100.0
+//정확성: 100.0
+//합계: 100.0 / 100.0
 
 function solution(my_string) {
-    var chk = my_string.match(/[0-9]+/g); //정규식에서 + 역할?
-    var answer = 0;
-
-    for (n of chk) {
-        answer += parseInt(n);
+    var x = my_string.replace(/[a-z]/gi, '*').split('*')
+    let result = 0;
+    
+    for (let i of x){
+        if (i >= 1 && i <= 1000)
+            result += parseInt(i);
     }
-
-    return answer;
+    return result;
 }
