@@ -1,0 +1,6 @@
+npm run fe-start
+http://127.0.0.1:12345/
+/productDetail/productDetailsPage.html
+
+ npm run vite-build
+npm run vite-start
